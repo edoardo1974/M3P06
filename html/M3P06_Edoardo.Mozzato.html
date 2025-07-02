@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="inputLetra">Inserisci una lettera:</label>
+         <input type="text" id="inputLetra" maxlength="1" placeholder="Inserisci una lettera" 
+       onkeypress="if(event.key==='Enter') aggiungiLetra()"></input>
+        <button onclick="imprimirLetras()">Cancelar</button>
+
+    </div>
+    
+    <div id="palavra"></div>
+
+    <script src="../js/imprimirletras.js"></script>
+</body>
+</html>
