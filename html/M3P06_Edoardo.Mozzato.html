@@ -7,11 +7,20 @@
 </head>
 <body>
     <div>
-        <label for="inputLetra">Inserisci una lettera:</label>
-         <input type="text" id="inputLetra" maxlength="1" placeholder="Inserisci una lettera" 
-       onkeypress="if(event.key==='Enter') aggiungiLetra()"></input>
+        <!-- 
+            This label is associated with the input field having the id "inputLetra".
+            It prompts the user to enter a single letter.
+        -->
+        <label for="inputLetra">Introduzir uma Letra:</label>
+        <!-- 
+            Input field for entering a single letter.
+        -->
+         <input type="text" id="inputLetra" maxlength="1" placeholder="Introduzir uma Letra" 
+       onkeypress="if(event.key==='Enter') adicionarLetra()"></input>
+        <!-- 
+            Triggers the 'imprimirLetras()' JavaScript function when clicked.
+        -->
         <button onclick="imprimirLetras()">Cancelar</button>
-
     </div>
     
     <div id="palavra"></div>

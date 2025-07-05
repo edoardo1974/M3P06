@@ -1,26 +1,55 @@
 var listaLetras = [];     
+var verifiqueoperação = false; 
 
 function pecaLetra()
 {
-    // Ottiene il valore dall'input HTML
+    // Ask the input value with id 'inputLetra' 
+    // and return the value entered by the user.
     const input = document.getElementById('inputLetra');
     const letra = input.value;
-    
-    input.value = ''; // Pulisce l'input dopo aver preso il valore
-    console.log("Letra inserita:", letra);
+
+    input.value = ''; //
+    console.log("Letra inserida:", letra);
     return letra;
 }
 
-function aggiungiLetra()
-{
-    let letra = pecaLetra();
-    if (verificacaoLetra(letra)) {
-        guardarLetras(letra);
-        alert("Lettera aggiunta con successo!");
+function operaçãoJáConcluída() {
+    if (verifiqueoperação) {
+        alert("Operação já concluída.");
+        return true;
     }
+    return false;
 }
 
-function verificacaoLetra(letra)
+
+function adicionarLetra(){
+    if (operaçãoJáConcluída()) {// Check if the operation is already completed
+        return;
+    }
+    else {   
+        let letra = pecaLetra();
+        if (verificacaoLetra(letra)) {
+            guardarLetras(letra);
+        }
+        }
+}
+
+/*function adicionarLetra()// Function to add a letter
+{
+    if (verifiqueoperação) {// Check if the operation is already completed
+        alert("Operaçao já concluída.");
+        return;
+    }
+    else {   
+        let letra = pecaLetra();
+        if (verificacaoLetra(letra)) {
+            guardarLetras(letra);
+        }
+        }
+}
+        */
+
+function verificacaoLetra(letra)// Function to verify if the input is a letter
 {
     if (letra.length === 1 && letra.match(/[a-zA-Z]/)) {
         return true;
@@ -30,28 +59,32 @@ function verificacaoLetra(letra)
     }
 }
 
-function guardarLetras(letra)
+function guardarLetras(letra)// Function to store the letter
 {
-    listaLetras.push(letra);  // Aggiunge la lettera alla fine dell'array
-
+    listaLetras.push(letra);  
 }
 
-function imprimirLetras()
+function imprimirLetras()// Function to print the letters
 {
-    cancelar();
-    let displayText = '';
-    for (let i = 0; i < listaLetras.length; i++ ) {
-        console.log(listaLetras[i]);
-        displayText += listaLetras[i];
-    }
-    document.getElementById('palavra').textContent = displayText;
-    
+    if (operaçãoJáConcluída()) {
+        return;
+    } 
+    else {
+        cancelar();
+        let displayText = '';
+        for (let i = 0; i < listaLetras.length; i++ ) {
+            console.log(listaLetras[i]);
+            displayText += listaLetras[i];
+        }
+        document.getElementById('palavra').textContent = 'A palavra inserita è: '+ displayText;
+}
 }
 
-function cancelar()
+function cancelar()// Function to cancel the operation
 {
     alert("Operação cancelada.");
+    verifiqueoperação = true; 
 }
 
-//aggiungiLetra()
+
 
