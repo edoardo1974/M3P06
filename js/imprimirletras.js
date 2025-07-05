@@ -34,20 +34,6 @@ function adicionarLetra(){
         }
 }
 
-/*function adicionarLetra()// Function to add a letter
-{
-    if (verifiqueoperação) {// Check if the operation is already completed
-        alert("Operaçao já concluída.");
-        return;
-    }
-    else {   
-        let letra = pecaLetra();
-        if (verificacaoLetra(letra)) {
-            guardarLetras(letra);
-        }
-        }
-}
-        */
 
 function verificacaoLetra(letra)// Function to verify if the input is a letter
 {
